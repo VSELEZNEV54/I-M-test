@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>товары — админ-панель с?м</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/admin.css">
+</head>
+<body class="admin">
+  <div class="adm" id="adm-root">
+    <main class="adm__main" id="adm-main">
+
+      <div class="bulkbar" data-bulkbar>
+        <span data-bulk-count>выбрано 0</span>
+        <button class="btn btn--lime" type="button" data-bulk-publish>опубликовать</button>
+        <button class="btn" type="button" style="background:transparent;border-color:rgba(255,255,255,0.55)" data-bulk-hide>скрыть</button>
+        <button class="btn" type="button" style="background:transparent;border-color:rgba(255,255,255,0.55)" data-bulk-delete>удалить</button>
+        <button class="linklike" type="button" style="color:rgba(255,255,255,0.7);margin-left:auto" data-bulk-clear>снять выделение</button>
+      </div>
+
+      <div class="adm-filters">
+        <div class="adm-search" data-search-box>
+          <input type="search" placeholder="поиск: имя или sku" data-f-q aria-label="поиск по товарам">
+        </div>
+        <select data-f-cat aria-label="фильтр по категории">
+          <option value="">все категории</option>
+        </select>
+        <select data-f-status aria-label="фильтр по статусу">
+          <option value="">все статусы</option>
+          <option value="published">опубликован</option>
+          <option value="draft">черновик</option>
+          <option value="hidden">скрыт</option>
+        </select>
+        <select data-f-avail aria-label="фильтр по наличию">
+          <option value="">наличие: все</option>
+          <option value="in">в наличии</option>
+          <option value="out">нет в наличии</option>
+        </select>
+        <span class="small mute" data-total></span>
+      </div>
+
+      <div class="panel panel--pad0">
+        <div class="table-wrap"><table class="adm-table" data-table></table></div>
+      </div>
+
+      <p class="adm-note mt-20">удаление касается только товаров, добавленных через админку; базовые товары прототипа при «удалении» переводятся в статус «скрыт».</p>
+    </main>
+  </div>
+
+  <script src="../assets/js/data.js"></script>
+  <script src="../assets/js/store.js"></script>
+  <script src="../assets/js/ui.js"></script>
+  <script src="../assets/js/admin-ui.js"></script>
+  <script src="../assets/js/admin-products.js"></script>
+</body>
+</html>

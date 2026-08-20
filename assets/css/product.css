@@ -1,0 +1,108 @@
+/* ============================================================
+   С?М — стили карточки товара (product.html)
+   ============================================================ */
+
+.product { padding-top: 10px; }
+
+.product__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(360px, 600px);
+  gap: clamp(28px, 4vw, 72px);
+  align-items: start;
+}
+
+/* ---------- галерея ---------- */
+.product__gallery {
+  display: grid;
+  grid-template-columns: 88px minmax(0, 1fr);
+  gap: 12px;
+  align-items: start;
+  position: sticky;
+  top: calc(var(--header-h) + 24px);
+}
+.product__gallery--single { grid-template-columns: minmax(0, 1fr); }
+.product__thumbs { display: flex; flex-direction: column; gap: 10px; }
+.product__thumb {
+  width: 100%; aspect-ratio: 4 / 5; background: var(--off);
+  border: 1px solid transparent; padding: 0; overflow: hidden;
+  transition: border-color 0.15s;
+}
+.product__thumb img { width: 100%; height: 100%; object-fit: cover; }
+.product__thumb:hover { border-color: var(--mute); }
+.product__thumb.is-active { border-color: var(--ink); box-shadow: inset 0 0 0 1px var(--ink); }
+.product__photo { position: relative; aspect-ratio: 4 / 5; background: var(--off); overflow: hidden; }
+.product__photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+
+/* ---------- инфо-колонка ---------- */
+.product__name { margin-bottom: 4px; }
+.product__meta { font-size: 13px; color: var(--mute); }
+.product__meta a { text-decoration: underline; text-underline-offset: 3px; }
+.product__meta a:hover { color: var(--plum); }
+
+.product__price {
+  display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap;
+  font-size: clamp(24px, 2.2vw, 32px); font-weight: 600;
+  margin: 22px 0 8px;
+}
+.product__price s { font-size: 0.62em; }
+.product__pct {
+  align-self: center; font-size: 13px; font-weight: 700;
+  background: var(--lime); padding: 4px 9px;
+}
+
+.product__stock { display: inline-flex; align-items: center; gap: 7px; font-size: 13.5px; margin-bottom: 24px; }
+.product__stock .icon { width: 16px; height: 16px; }
+.product__stock--in { color: var(--ok); }
+.product__stock--out { color: var(--danger); }
+
+/* ---------- выбор размера ---------- */
+.product__sizes-head { margin-bottom: 10px; }
+.sizes { display: flex; flex-wrap: wrap; gap: 8px; }
+.size-btn {
+  width: 54px; height: 54px; border: 1px solid var(--line);
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: 14px; font-weight: 500;
+  transition: border-color 0.15s, background 0.15s, color 0.15s;
+}
+.size-btn:hover { border-color: var(--ink); }
+.size-btn.is-active { background: var(--ink); color: #fff; border-color: var(--ink); }
+.size-btn[disabled] {
+  color: var(--mute); background: var(--off); border-color: var(--line);
+  text-decoration: line-through; cursor: not-allowed;
+}
+.size-hint { min-height: 20px; font-size: 12.5px; color: var(--danger); margin-top: 8px; }
+
+/* ---------- покупка ---------- */
+.buyrow { display: flex; gap: 12px; margin: 22px 0 8px; }
+.buyrow .btn { flex: 1; }
+.product-qty { flex: 0 0 auto; }
+.product-qty button { width: 42px; height: 52px; }
+.product-qty input { height: 52px; }
+.fav-btn {
+  flex: 0 0 auto; width: 54px; height: 54px; border: 1px solid var(--line);
+  display: inline-flex; align-items: center; justify-content: center;
+  transition: border-color 0.15s, color 0.15s;
+}
+.fav-btn:hover { border-color: var(--ink); }
+.fav-btn.is-active { color: var(--plum); border-color: var(--plum); }
+.fav-btn.is-active .icon { display: none; }
+.fav-btn.is-active .icon--fill { display: inline-flex; }
+
+/* ---------- аккордеоны ---------- */
+.product__acc { margin-top: 36px; }
+.product__acc .acc__body p:last-child { margin-bottom: 0; }
+.product__acc-links { display: flex; gap: 18px; flex-wrap: wrap; }
+
+/* ---------- адаптив ---------- */
+@media (max-width: 1100px) {
+  .product__grid { grid-template-columns: 1fr; }
+  .product__gallery { position: static; max-width: 680px; }
+}
+@media (max-width: 800px) {
+  .product__gallery { grid-template-columns: 1fr; }
+  .product__photo { order: 1; }
+  .product__thumbs { order: 2; flex-direction: row; flex-wrap: wrap; }
+  .product__thumb { width: 64px; }
+  .buyrow { flex-wrap: wrap; }
+  .buyrow .btn { flex: 1 1 100%; order: 3; }
+}

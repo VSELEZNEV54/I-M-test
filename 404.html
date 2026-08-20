@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>страница не найдена — 404 | с?м</title>
+  <meta name="description" content="такой страницы нет. зато есть каталог — худи, футболки и всё остальное от бренда с?м.">
+  <meta name="robots" content="noindex">
+  <!-- фавиконка инлайном: 404 отдаётся с любого пути, относительная ссылка бы отвалилась -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%2064%2064%22><rect%20width=%2264%22%20height=%2264%22%20fill=%22#141414%22/><g%20transform=%22translate(-21.8,%2013.4)%20scale(0.2084)%22><path%20d=%22M294.55%2090.2454L198.688%20148.111V115.32L280.855%2065.6526C290.14%2060.1072%20293.157%2047.5697%20287.818%2038.1666C282.48%2028.5224%20270.41%2025.388%20261.358%2030.9334L198.92%2068.787V35.9966L247.663%206.58174C269.946%20-6.92018%20298.496%201.03631%20311.494%2024.1825C324.492%2047.0875%20316.832%2076.7435%20294.55%2090.2454ZM198.92%20156.308V185H232.112V156.308H198.92Z%22%20fill=%22#c6db1f%22/></g></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* ============================================================
+       с?м — страница 404. полностью автономная:
+       все стили инлайн, никаких внешних css/js и картинок,
+       потому что на github pages 404 отдаётся с любого пути.
+       ============================================================ */
+    :root {
+      --lime: #c6db1f;
+      --lime-hot: #d3ea1d;
+      --plum: #83517b;
+      --ink: #111111;
+      --paper: #ffffff;
+      --mute: #8a8a86;
+      --line: #e4e2de;
+      --font-display: 'Manrope', 'Arial Black', sans-serif;
+      --font-body: 'Manrope', 'Helvetica Neue', Arial, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.45;
+      color: var(--ink);
+      background: var(--paper);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* верхняя чёрная полоса с логотипом и кодом ошибки */
+    .nf-bar {
+      background: var(--ink);
+      color: var(--lime);
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: lowercase;
+      padding: 11px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .nf-bar span { color: rgba(255, 255, 255, 0.55); }
+
+    .nf-wrap {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      max-width: 1100px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 60px 30px 80px;
+    }
+
+    /* гигантское 404 */
+    .nf-code {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: clamp(120px, 30vw, 400px);
+      line-height: 0.8;
+      letter-spacing: -0.04em;
+      color: var(--ink);
+      margin: 0;
+      user-select: none;
+      text-transform: lowercase;
+    }
+    .nf-code em {
+      font-style: normal;
+      color: var(--lime);
+      -webkit-text-stroke: 3px var(--ink);
+    }
+
+    .nf-logo { height: 16px; width: auto; display: block; }
+
+    .nf-rule {
+      height: 8px;
+      background: var(--lime);
+      margin: 26px 0 34px;
+      max-width: 720px;
+    }
+
+    .nf-title {
+      font-family: var(--font-display);
+      font-weight: 700;
+      text-transform: lowercase;
+      font-size: clamp(22px, 3.4vw, 44px);
+      line-height: 1.05;
+      letter-spacing: -0.01em;
+      margin: 0 0 18px;
+      max-width: 880px;
+    }
+    .nf-title b { font-weight: 800; color: var(--plum); }
+
+    .nf-sub {
+      color: var(--mute);
+      font-size: 17px;
+      max-width: 560px;
+      margin: 0 0 38px;
+    }
+    .nf-sub b { color: var(--ink); font-weight: 600; }
+
+    /* кнопки */
+    .nf-actions { display: flex; flex-wrap: wrap; gap: 14px; }
+    .nf-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 17px 34px;
+      border: 1px solid var(--ink);
+      font-size: 15px;
+      font-weight: 600;
+      text-transform: lowercase;
+      transition: background 0.15s, color 0.15s, transform 0.15s;
+    }
+    .nf-btn--dark { background: var(--ink); color: var(--paper); }
+    .nf-btn--dark:hover { background: var(--plum); border-color: var(--plum); transform: translateY(-2px); }
+    .nf-btn--lime { background: var(--lime); color: var(--ink); }
+    .nf-btn--lime:hover { background: var(--lime-hot); transform: translateY(-2px); }
+
+    /* низ страницы */
+    .nf-foot {
+      border-top: 1px solid var(--line);
+      padding: 18px 30px 26px;
+      font-size: 13px;
+      color: var(--mute);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 26px;
+      align-items: center;
+    }
+    .nf-foot a:hover { color: var(--ink); }
+
+    @media (max-width: 720px) {
+      .nf-wrap { padding: 40px 22px 60px; }
+      .nf-bar { padding: 10px 22px; font-size: 11px; }
+      .nf-code em { -webkit-text-stroke-width: 2px; }
+      .nf-rule { height: 6px; margin: 20px 0 26px; }
+      .nf-btn { flex: 1 1 100%; }
+      .nf-foot { padding: 16px 22px 24px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="nf-bar">
+    <a href="./index.html" aria-label="с?м — на главную"><img class="nf-logo" src="data:image/svg+xml,<svg%20width=%22532%22%20height=%22185%22%20viewBox=%220%200%20532%20185%22%20fill=%22none%22%20xmlns=%22http://www.w3.org/2000/svg%22><path%20d=%22M479.311%2035.9961H532V156.549H503.218V60.3478H498.112L448.208%20156.549H415.712L365.576%2060.3478H360.47V156.549H331.92V35.9961H384.609L432.192%20127.375L479.311%2035.9961Z%22%20fill=%22white%22/><path%20d=%22M157.604%20106.399C156.675%20109.051%20155.515%20111.703%20154.122%20113.873C148.551%20123.035%20138.571%20129.063%20127.429%20129.063H58.0279C40.6195%20129.063%2026.2286%20114.355%2026.2286%2096.0314C26.2286%2077.7074%2040.6195%2063.241%2058.0279%2063.241H127.429C137.642%2063.241%20146.695%2068.3043%20152.497%2076.0196C153.89%2077.9485%20155.051%2079.8773%20155.979%2082.0473H183.832C182.208%2075.0552%20179.422%2068.5454%20175.709%2062.9999C165.264%2046.6047%20147.623%2035.9961%20127.429%2035.9961H58.0279C25.9965%2035.9961%200%2062.9999%200%2096.2725C0%20129.545%2025.9965%20156.549%2058.0279%20156.549H127.429C148.319%20156.549%20166.656%20145.217%20176.869%20127.857C180.815%20121.348%20183.368%20114.114%20184.761%20106.399H157.604Z%22%20fill=%22white%22/><path%20d=%22M304.298%20128.34H288.05C280.623%20128.34%20274.588%20134.609%20274.588%20142.324C274.588%20150.039%20280.623%20156.308%20288.05%20156.308H304.298C311.726%20156.308%20317.761%20150.039%20317.761%20142.324C317.761%20134.609%20311.726%20128.34%20304.298%20128.34ZM304.995%20151.968H286.89C282.248%20151.968%20278.766%20147.628%20278.766%20142.324C278.766%20137.02%20282.48%20132.68%20286.89%20132.68H304.995C309.637%20132.68%20313.118%20137.02%20313.118%20142.324C313.351%20147.628%20309.637%20151.968%20304.995%20151.968Z%22%20fill=%22white%22/><path%20d=%22M305.691%20140.156C305.691%20137.263%20303.37%20134.852%20300.585%20134.852H289.907H288.979H286.426V149.559H289.907V145.46H298.96L301.745%20149.559H305.691L302.674%20144.978C304.53%20144.255%20305.691%20142.326%20305.691%20140.156ZM289.907%20138.227H300.585C301.513%20138.227%20302.441%20139.191%20302.441%20140.156C302.441%20141.12%20301.513%20142.085%20300.585%20142.085H289.907V138.227Z%22%20fill=%22white%22/><path%20d=%22M294.55%2090.2454L198.688%20148.111V115.32L280.855%2065.6526C290.14%2060.1072%20293.157%2047.5697%20287.818%2038.1666C282.48%2028.5224%20270.41%2025.388%20261.358%2030.9334L198.92%2068.787V35.9966L247.663%206.58174C269.946%20-6.92018%20298.496%201.03631%20311.494%2024.1825C324.492%2047.0875%20316.832%2076.7435%20294.55%2090.2454ZM198.92%20156.308V185H232.112V156.308H198.92Z%22%20fill=%22white%22/></svg>" alt="с?м"></a>
+    <span>ошибка 404</span>
+  </div>
+
+  <main class="nf-wrap">
+    <p class="nf-code">4<em>0</em>4</p>
+    <div class="nf-rule"></div>
+
+    <h1 class="nf-title">такой страницы нет. <b>зато есть каталог.</b></h1>
+    <p class="nf-sub">возможно, ссылку удалили, а возможно — вы просто набрали её по памяти. и то и другое поправимо: <b>запретите себе запрещать</b> и вернитесь к вещам.</p>
+
+    <div class="nf-actions">
+      <a class="nf-btn nf-btn--dark" href="./index.html">на главную</a>
+      <a class="nf-btn nf-btn--lime" href="./catalog.html">в каталог</a>
+    </div>
+  </main>
+
+  <footer class="nf-foot">
+    <span>с?м, новосибирск, красный проспект, 49</span>
+    <a href="tel:+79039001516">+7 (903) 900-15-16</a>
+    <a href="mailto:hey@skolkomozhno.ru">hey@skolkomozhno.ru</a>
+  </footer>
+</body>
+</html>

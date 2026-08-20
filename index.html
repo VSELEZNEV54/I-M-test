@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>с?м — бренд одежды, призывающий выйти за рамки | интернет-магазин</title>
+  <meta name="description" content="с?м («сколько можно?») — стритвир-бренд из новосибирска. худи, футболки, верхняя одежда и аксессуары для тех, кто запретил себе запрещать. доставка по россии.">
+  <link rel="canonical" href="https://vseleznev54.github.io/I-M-test/index.html">
+  <meta property="og:title" content="с?м — сколько можно? стритвир-бренд">
+  <meta property="og:description" content="запретите себе запрещать! одежда и аксессуары с характером.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/img/home/hero-1.jpg">
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/home.css">
+</head>
+<body>
+  <div id="chrome-top"></div>
+
+  <!-- ГЕРОЙ -->
+  <section class="hero">
+    <div class="hero__media">
+      <div class="hero__shot"><img src="assets/img/home/hero-1.jpg" alt="съёмка бренда с?м — портрет" fetchpriority="high"></div>
+      <div class="hero__shot"><img src="assets/img/home/hero-2.jpg" alt="съёмка бренда с?м — образ в чёрном"></div>
+    </div>
+    <div class="hero__manifest">
+      <p>бренд одежды, призывающий людей попробовать что-то новое и выйти за устоявшиеся рамки</p>
+      <b>запретите себе запрещать!</b>
+    </div>
+    <h1 class="hero__title">
+      <img class="hero__lockup" src="assets/img/brand/logo-full-white.svg"
+           alt="сколько? можно® — логотип бренда с?м" width="1860" height="404" fetchpriority="high">
+    </h1>
+  </section>
+
+  <!-- БЕГУЩАЯ СТРОКА -->
+  <div id="marquee-slot"></div>
+
+  <!-- ПЛИТКИ КОЛЛЕКЦИЙ -->
+  <section class="tiles" aria-label="подборки">
+    <a class="tile" href="catalog.html?collection=zapreshchenka"><img src="assets/img/home/tile-summer.jpg" alt="подборка лето 2026" loading="lazy"><span class="tile__label">лето 2026</span></a>
+    <a class="tile" href="catalog.html?sort=pop"><img src="assets/img/home/tile-popular.jpg" alt="популярное" loading="lazy"><span class="tile__label">популярное</span></a>
+    <a class="tile tile--cta" href="catalog.html"><span>смотреть весь каталог</span><span class="icon icon--lg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 3v17m0 0l-7-7m7 7l7-7"/></svg></span></a>
+    <a class="tile" href="lookbook.html"><img src="assets/img/home/tile-lookbook.jpg" alt="лукбуки" loading="lazy"><span class="tile__label">лукбуки</span></a>
+    <a class="tile" href="catalog.html?tag=new"><img src="assets/img/home/tile-new.jpg" alt="новинки" loading="lazy"><span class="tile__label">новинки</span></a>
+  </section>
+
+  <!-- СПИСОК КОЛЛЕКЦИЙ -->
+  <section class="colist container" aria-label="коллекции">
+    <img class="colist__img colist__img--l" src="assets/img/home/slide-1.jpg" alt="" data-colist-img-l>
+    <img class="colist__img colist__img--r" src="assets/img/home/slide-3.jpg" alt="" data-colist-img-r>
+    <div class="colist__items" data-colist></div>
+  </section>
+
+  <!-- ЛУКБУК-СЛАЙДЕР -->
+  <section class="look container">
+    <div class="section-head">
+      <h2 class="h2"><span class="accent">плевать</span> на дресс-код</h2>
+      <a class="btn btn--dark btn--sm section-head__link" href="lookbook.html">смотреть все коллекции</a>
+    </div>
+    <div class="look__stage" data-look>
+      <div class="look__shot"><img src="assets/img/home/slide-1.jpg" alt="лукбук с?м — образ 1"></div>
+      <div class="look__shot"><img src="assets/img/home/slide-2.jpg" alt="лукбук с?м — образ 2"></div>
+      <div class="look__shot"><img src="assets/img/blog/blog-5.jpg" alt="лукбук с?м — образ 3"></div>
+      <div class="look__circle"><img src="assets/img/home/circle.jpg" alt="лукбук с?м — акцентный образ"></div>
+      <button class="look__nav look__nav--prev" data-look-prev aria-label="назад"><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 12H4m0 0l6-6m-6 6l6 6"/></svg></span></button>
+      <button class="look__nav look__nav--next" data-look-next aria-label="вперёд"><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12h16m0 0l-6-6m6 6l-6 6"/></svg></span></button>
+    </div>
+    <div class="look__word">но<b>вый</b> дроп</div>
+  </section>
+
+  <!-- ПОПУЛЯРНОЕ -->
+  <section class="section container">
+    <div class="section-head">
+      <h2 class="h2"><span class="accent">сейчас</span> разбирают</h2>
+      <a class="btn btn--outline btn--sm section-head__link" href="catalog.html?sort=pop">все хиты</a>
+    </div>
+    <div class="pgrid" data-popular></div>
+  </section>
+
+  <!-- НОВИНКИ -->
+  <section class="section section--tight container">
+    <div class="section-head">
+      <h2 class="h2"><span class="accent">новый</span> дроп уже здесь</h2>
+      <a class="btn btn--outline btn--sm section-head__link" href="catalog.html?tag=new">все новинки</a>
+    </div>
+    <div class="pgrid" data-new></div>
+  </section>
+
+  <!-- ПРОМО-БАННЕР -->
+  <section class="promo-banner">
+    <div class="promo-banner__in container">
+      <div class="promo-banner__title">−15% на всё<br>по промокоду</div>
+      <div class="promo-banner__code"><b>SKOLKO15</b><button class="btn btn--lime btn--sm" data-copy-promo>скопировать</button></div>
+      <div class="promo-banner__sub">действует до 30 сентября • применяется в корзине • без минимальной суммы</div>
+    </div>
+  </section>
+
+  <!-- ПРЕИМУЩЕСТВА -->
+  <section class="section container">
+    <div class="perks">
+      <div class="perk"><div class="perk__num">01</div><div class="perk__title">доставка по россии</div><p>курьером от 1 дня, бесплатно от 8 000 ₽. упаковка переживёт всё.</p></div>
+      <div class="perk"><div class="perk__num">02</div><div class="perk__title">возврат без допросов</div><p>14 дней на «не моё». вернём деньги, оставим уважение.</p></div>
+      <div class="perk"><div class="perk__num">03</div><div class="perk__title">сшито в сибири</div><p>своё производство в новосибирске. проверено морозом −30.</p></div>
+      <div class="perk"><div class="perk__num">04</div><div class="perk__title">дропы каждую неделю</div><p>лимитированные партии. закончилось — значит закончилось.</p></div>
+    </div>
+  </section>
+
+  <!-- О БРЕНДЕ -->
+  <section class="section container">
+    <div class="brand-block">
+      <div class="brand-block__media"><img src="assets/img/home/slide-2.jpg" alt="команда с?м на съёмке" loading="lazy"></div>
+      <div class="brand-block__text">
+        <h2 class="h2">мы — <span class="accent--plum">с?м</span>. и мы спрашиваем: сколько можно?</h2>
+        <p>сколько можно откладывать себя на потом? носить «как у всех» и молчать в бежевом? мы делаем одежду, которая помогает перестать спрашивать разрешения.</p>
+        <p>решительность ✳ командность ✳ насмотренность — три слова, на которых держится всё, что мы шьём.</p>
+        <a class="btn btn--dark mt-20" href="about.html">узнать бренд ближе</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- БЛОГ -->
+  <section class="section container">
+    <div class="section-head">
+      <h2 class="h2"><span class="accent">новости</span> моды</h2>
+      <a class="btn btn--dark btn--sm section-head__link" href="blog.html">читать все статьи</a>
+    </div>
+    <div class="blogrow" data-blog></div>
+  </section>
+
+  <!-- SEO-ТЕКСТ -->
+  <section class="seo-text">
+    <div class="container">
+      <h1>интернет-магазин уличной одежды с?м — худи, футболки, верхняя одежда с доставкой по россии</h1>
+      <p>с?м («сколько можно?») — российский стритвир-бренд из новосибирска. в каталоге — худи и свитшоты оверсайз, футболки с ручной заливкой, куртки и тренчи, платья, юбки и аксессуары: балаклавы, цепи, рюкзаки. собственное производство, лимитированные дропы, честные материалы. заказывайте онлайн: доставка курьером, в пункты выдачи и почтой по всей россии, оплата картой и через сбп, обмен и возврат в течение 14 дней.</p>
+    </div>
+  </section>
+
+  <div id="chrome-footer"></div>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/store.js"></script>
+  <script src="assets/js/ui.js"></script>
+  <script src="assets/js/home.js"></script>
+</body>
+</html>

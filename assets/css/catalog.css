@@ -1,0 +1,109 @@
+/* ============================================================
+   С?М — стили каталога (catalog.html)
+   ============================================================ */
+
+/* ---------- шапка каталога ---------- */
+.cat-head { padding: 8px 0 22px; max-width: 1100px; }
+.cat-head__note { margin-top: 12px; }
+
+/* ---------- чипы категорий ---------- */
+.cat-chips { gap: 8px; margin-bottom: 6px; }
+.cat-chips .chip { flex: 0 0 auto; }
+
+/* ---------- строка фильтров ---------- */
+.fbar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px 28px;
+  padding: 16px 0;
+  margin-bottom: 30px;
+  border-bottom: 1px solid var(--line);
+}
+.fbar__check { align-items: center; white-space: nowrap; }
+.fbar__clear { font-size: 13px; color: var(--mute); white-space: nowrap; }
+.fbar__clear:hover { color: var(--plum); }
+.fbar__sort { margin-left: auto; }
+.fbar__sort .dd__btn { gap: 5px; }
+
+/* счётчик выбранных значений в кнопке фильтра */
+.dd__num {
+  min-width: 18px; height: 18px; padding: 0 5px; margin-left: 2px;
+  background: var(--lime); color: var(--ink);
+  font-size: 11px; font-weight: 700; font-style: normal;
+  display: inline-flex; align-items: center; justify-content: center;
+  border-radius: 20px;
+}
+
+/* панели дропдаунов */
+.dd__panel--wide { min-width: 272px; }
+.dd__panel--right { left: auto; right: 0; }
+.dd__panel { max-height: 60vh; overflow: auto; }
+
+/* размеры — в две колонки */
+.size-f { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 18px; }
+.size-f .check { margin-bottom: 0; }
+
+/* цвет: кружок-образец рядом с чекбоксом */
+.check--color { align-items: center; }
+.color-dot {
+  width: 15px; height: 15px; flex: 0 0 auto;
+  border: 1px solid var(--line); border-radius: 50%;
+  display: inline-block;
+}
+
+/* цена: два инпута в ряд */
+.price-f { display: flex; gap: 10px; margin-bottom: 14px; }
+.price-f input {
+  width: 100%; min-width: 0; padding: 12px 13px;
+  border: 1px solid var(--line); background: var(--paper);
+  border-radius: 0; -webkit-appearance: none; appearance: none;
+}
+.price-f input:focus { outline: none; border-color: var(--ink); }
+.price-f input::-webkit-outer-spin-button,
+.price-f input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+
+/* сортировка: список опций */
+.dd__opt {
+  display: block; width: 100%; text-align: left;
+  padding: 8px 0; font-size: 14px; color: var(--ink);
+  white-space: nowrap;
+}
+.dd__opt:hover { color: var(--plum); }
+.dd__opt.is-active { font-weight: 600; }
+.dd__opt.is-active::before { content: '✳'; color: var(--lime); margin-right: 8px; }
+.dd__opt:not(.is-active)::before { content: ''; display: inline-block; width: 20px; }
+
+/* ---------- смотреть ещё ---------- */
+.loadmore {
+  display: flex; flex-direction: column; align-items: center; gap: 16px;
+  padding: 46px 0 80px;
+}
+.loadmore__count { letter-spacing: 0.02em; }
+.loadmore .btn { min-width: 280px; }
+
+/* ---------- адаптив ---------- */
+@media (max-width: 1024px) {
+  .fbar { gap: 12px 20px; }
+}
+@media (max-width: 900px) {
+  .cat-chips {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    margin-inline: calc(var(--pad) * -1);
+    padding: 0 var(--pad) 6px;
+    scrollbar-width: thin;
+  }
+  .cat-chips::-webkit-scrollbar { height: 3px; }
+  .cat-chips::-webkit-scrollbar-thumb { background: var(--line); }
+  .cat-chips .chip { padding: 10px 16px; }
+}
+@media (max-width: 800px) {
+  .cat-head { padding: 4px 0 18px; }
+  .fbar { gap: 12px 18px; padding: 14px 0; margin-bottom: 22px; }
+  .fbar__sort { margin-left: 0; width: 100%; }
+  .fbar__sort .dd__panel--right { left: 0; right: auto; }
+  .dd__panel { max-width: calc(100vw - var(--pad) * 2); }
+  .loadmore { padding: 32px 0 56px; }
+  .loadmore .btn { min-width: 100%; }
+}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>блог и страницы — админ-панель с?м</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/admin.css">
+</head>
+<body class="admin">
+  <div class="adm" id="adm-root">
+    <main class="adm__main" id="adm-main">
+
+      <div class="panel panel--pad0">
+        <div class="panel__head">
+          <div class="panel__title">статьи блога</div>
+          <button class="btn btn--sm btn--lime" type="button" data-new-article>+ новая статья</button>
+        </div>
+        <div class="table-wrap"><table class="adm-table" data-articles></table></div>
+      </div>
+
+      <div class="panel panel--pad0 mt-20">
+        <div class="panel__head">
+          <div class="panel__title">страницы</div>
+          <a class="linklike small" href="../index.html">открыть витрину</a>
+        </div>
+        <div class="table-wrap"><table class="adm-table" data-pages></table></div>
+      </div>
+
+      <p class="adm-note mt-20">в прототипе редактор демонстрационный: правки статей не уходят на сайт. в боевой версии сюда подключается cms — визуальный редактор блоков, медиатека, черновики и автосохранение, плюс seo-поля для каждой страницы.</p>
+
+      <div class="modal" data-modal hidden>
+        <div class="modal__backdrop" data-modal-close></div>
+        <div class="modal__panel" style="width:660px">
+          <button class="modal__close iconbtn" type="button" data-modal-close aria-label="закрыть"></button>
+          <div class="modal__title" data-modal-title>редактировать статью</div>
+          <form data-article-form>
+            <label class="field"><span>заголовок</span><input type="text" data-a-title placeholder="о чём пишем?" required></label>
+            <div class="grid-2">
+              <label class="field"><span>категория</span><select data-a-cat></select></label>
+              <label class="field"><span>дата публикации</span><input type="date" data-a-date></label>
+            </div>
+            <label class="field"><span>анонс</span><textarea data-a-excerpt rows="3" placeholder="две строки, ради которых кликают"></textarea></label>
+            <label class="field"><span>текст статьи</span><textarea data-a-body rows="7" placeholder="первый абзац материала"></textarea></label>
+            <div style="display:flex;gap:10px">
+              <button class="btn btn--dark" type="submit">сохранить</button>
+              <button class="btn btn--ghost" type="button" data-modal-close>отмена</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <script src="../assets/js/data.js"></script>
+  <script src="../assets/js/store.js"></script>
+  <script src="../assets/js/ui.js"></script>
+  <script src="../assets/js/admin-ui.js"></script>
+  <script src="../assets/js/admin-content.js"></script>
+</body>
+</html>

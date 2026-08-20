@@ -1,0 +1,95 @@
+/* ============================================================
+   с?м — стили информационных страниц
+   (доставка, возврат, контакты, документы)
+   ============================================================ */
+
+/* шапка инфо-страницы */
+.info-head { padding: 26px 0 10px; }
+.info-head .h-display { font-size: clamp(32px, 5vw, 74px); }
+.info-head__sub { color: var(--mute); max-width: 620px; margin: 16px 0 0; font-size: 17px; }
+
+/* карточки-плитки (оплата, преимущества) */
+.info-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); margin: 26px 0; }
+.icard { background: var(--paper); padding: 30px 26px; }
+.icard__num { font-family: var(--font-display); font-weight: 700; font-size: 14px; color: var(--plum); margin-bottom: 12px; }
+.icard__title { font-size: 17px; font-weight: 600; margin-bottom: 8px; }
+.icard p { font-size: 14px; color: var(--mute); margin: 0; }
+
+/* нумерованные шаги (возврат) */
+.steps { list-style: none; counter-reset: step; margin: 26px 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+.steps li { counter-increment: step; background: var(--paper); padding: 28px 24px; }
+.steps li::before {
+  content: '0' counter(step);
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 34px;
+  line-height: 1;
+  color: var(--lime);
+  -webkit-text-stroke: 1.5px var(--ink);
+  margin-bottom: 16px;
+}
+.steps b { display: block; font-weight: 600; margin-bottom: 6px; }
+.steps p { font-size: 14px; color: var(--mute); margin: 0; }
+
+/* контакты: сетка «инфо + карта» */
+.contact-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 50px; align-items: start; margin-top: 10px; }
+.c-rows { border-top: 1px solid var(--line); }
+.c-row { display: grid; grid-template-columns: 150px 1fr; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--line); align-items: baseline; }
+.c-row > span:first-child { font-size: 13px; color: var(--mute); }
+.c-row b { font-weight: 600; }
+.c-row a:hover { color: var(--plum); }
+.c-phone { font-family: var(--font-display); font-weight: 700; font-size: clamp(18px, 1.8vw, 24px); }
+
+/* карта-заглушка */
+.map-stub {
+  position: relative;
+  background: var(--ink);
+  color: #fff;
+  min-height: 380px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  overflow: hidden;
+  background-image:
+    repeating-linear-gradient(0deg, transparent 0 79px, rgba(255, 255, 255, 0.07) 79px 80px),
+    repeating-linear-gradient(90deg, transparent 0 79px, rgba(255, 255, 255, 0.07) 79px 80px);
+}
+.map-stub::before {
+  content: '';
+  position: absolute;
+  inset: -20%;
+  background: linear-gradient(115deg, transparent 42%, rgba(198, 219, 31, 0.14) 50%, transparent 58%);
+  pointer-events: none;
+}
+.map-stub .icon { width: 58px; height: 58px; color: var(--lime); }
+.map-stub__label { font-family: var(--font-display); font-weight: 700; font-size: 20px; }
+.map-stub__addr { color: rgba(255, 255, 255, 0.6); font-size: 14px; }
+
+/* соцсети */
+.soc-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+.soc-row a { border: 1px solid var(--ink); padding: 9px 18px; font-size: 14px; transition: background 0.15s, color 0.15s; }
+.soc-row a:hover { background: var(--ink); color: var(--lime); }
+
+/* форма вопроса */
+.ask-form { max-width: 560px; }
+
+/* приписка про прототип */
+.proto-note { margin-top: 50px; padding: 16px 20px; border: 1px dashed var(--mute); color: var(--mute); font-size: 13px; max-width: 760px; }
+
+/* адаптив */
+@media (max-width: 1100px) {
+  .steps { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 900px) {
+  .contact-grid { grid-template-columns: 1fr; gap: 30px; }
+  .info-cards { grid-template-columns: 1fr; }
+  .map-stub { min-height: 280px; }
+}
+@media (max-width: 560px) {
+  .steps { grid-template-columns: 1fr; }
+  .c-row { grid-template-columns: 1fr; gap: 4px; }
+}

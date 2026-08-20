@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>импорт и экспорт — админ-панель с?м</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/admin.css">
+</head>
+<body class="admin">
+  <div class="adm" id="adm-root">
+    <main class="adm__main" id="adm-main">
+
+      <div class="adm-grid">
+        <div>
+
+          <div class="panel">
+            <div class="panel__head">
+              <div class="panel__title">импорт товаров из csv</div>
+              <span class="small mute">разделитель «;», кодировка utf-8</span>
+            </div>
+
+            <div class="dropzone" data-dropzone>
+              <strong>перетащи csv-файл сюда</strong>
+              <div class="dropzone__hint">или нажми и выбери файл на диске — .csv или .txt</div>
+              <input type="file" accept=".csv,.txt" hidden data-file>
+            </div>
+            <p class="small mute" style="margin-top:8px" data-file-name hidden></p>
+
+            <p class="adm-note mt-20">формат строки: <b>sku;название;категория;цена;остаток;статус</b><br>
+              категория — slug (<b>hudi</b>) или имя (<b>худи</b>); статус — published, draft или hidden (пусто = published); первая строка-шапка распознаётся сама.</p>
+
+            <label class="field mt-20"><span>или вставь строки сюда</span>
+              <textarea rows="8" data-csv placeholder="SM-1001;худи overload;hudi;7900;12;published
+SM-1002;кепка nightcall;аксессуары;2900;7;draft"></textarea>
+            </label>
+
+            <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+              <button class="btn btn--dark" type="button" data-check>проверить</button>
+              <button class="btn btn--outline" type="button" data-template>скачать шаблон csv</button>
+              <button class="linklike" type="button" data-clear>очистить</button>
+            </div>
+
+            <div class="mt-20" data-report></div>
+
+            <div class="table-wrap" data-preview-wrap hidden>
+              <table class="adm-table" data-preview></table>
+            </div>
+
+            <button class="btn btn--lime btn--block mt-20" type="button" data-import hidden>импортировать</button>
+          </div>
+
+          <p class="adm-note mt-20">импорт кладёт товары в localStorage прототипа: они появятся в списке товаров и в каталоге на витрине. чтобы вернуть базу к исходной, удали их в разделе «товары».</p>
+
+        </div>
+
+        <div>
+          <div class="panel">
+            <div class="panel__head"><div class="panel__title">экспорт</div></div>
+            <p class="small mute" style="margin-bottom:14px">выгрузка того, что сейчас в прототипе: базовые данные плюс всё, что натворили в админке.</p>
+            <button class="btn btn--outline btn--block" type="button" data-export-products>экспорт товаров (csv)</button>
+            <button class="btn btn--outline btn--block mt-20" type="button" data-export-orders>экспорт заказов (csv)</button>
+            <p class="adm-note mt-20">xlsx в прототипе эмулируется csv-файлом</p>
+          </div>
+
+          <div class="panel mt-20">
+            <div class="panel__head"><div class="panel__title">что проверяем</div></div>
+            <ul class="small mute" style="display:grid;gap:8px;list-style:disc;padding-left:18px">
+              <li>sku на месте и не повторяет уже существующий</li>
+              <li>цена — число</li>
+              <li>категория есть в справочнике</li>
+              <li>остаток раскладывается по размерам S/M/L, аксессуары получают один общий остаток</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <script src="../assets/js/data.js"></script>
+  <script src="../assets/js/store.js"></script>
+  <script src="../assets/js/ui.js"></script>
+  <script src="../assets/js/admin-ui.js"></script>
+  <script src="../assets/js/admin-import.js"></script>
+</body>
+</html>

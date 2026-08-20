@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>каталог уличной одежды с?м — худи, футболки, аксессуары</title>
+  <meta name="description" content="каталог с?м: худи и свитшоты оверсайз, футболки, топы, рубашки, верхняя одежда, платья, юбки и аксессуары. фильтры по цвету, размеру и цене, лимитированные дропы, доставка по россии.">
+  <link rel="canonical" href="https://vseleznev54.github.io/I-M-test/catalog.html">
+  <meta property="og:title" content="каталог уличной одежды с?м — худи, футболки, аксессуары">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/img/home/tile-popular.jpg">
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/catalog.css">
+</head>
+<body>
+  <div id="chrome-top"></div>
+
+  <div class="container">
+
+    <nav class="breadcrumbs" data-crumbs aria-label="хлебные крошки">
+      <span><a href="index.html">главная</a></span><span>каталог</span>
+    </nav>
+
+    <header class="cat-head">
+      <h1 class="h1" data-h1>место, где ты раскроешь настоящего себя</h1>
+      <div class="cat-head__note small mute" data-note></div>
+    </header>
+
+    <!-- чипы категорий -->
+    <div class="chips cat-chips" data-chips></div>
+
+    <!-- строка фильтров -->
+    <div class="fbar" data-fbar>
+
+      <div class="dd" data-dd="cat">
+        <button class="dd__btn" type="button">категория<b class="dd__num" data-num="cat" hidden></b>
+          <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 9l6 6 6-6"/></svg></span>
+        </button>
+        <div class="dd__panel" data-panel="cat"></div>
+      </div>
+
+      <div class="dd" data-dd="color">
+        <button class="dd__btn" type="button">цвет<b class="dd__num" data-num="color" hidden></b>
+          <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 9l6 6 6-6"/></svg></span>
+        </button>
+        <div class="dd__panel" data-panel="color"></div>
+      </div>
+
+      <div class="dd" data-dd="size">
+        <button class="dd__btn" type="button">размер<b class="dd__num" data-num="size" hidden></b>
+          <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 9l6 6 6-6"/></svg></span>
+        </button>
+        <div class="dd__panel" data-panel="size"></div>
+      </div>
+
+      <div class="dd" data-dd="price">
+        <button class="dd__btn" type="button">цена<b class="dd__num" data-num="price" hidden></b>
+          <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 9l6 6 6-6"/></svg></span>
+        </button>
+        <div class="dd__panel dd__panel--wide" data-panel="price">
+          <div class="price-f">
+            <input type="number" min="0" inputmode="numeric" placeholder="от" data-price-from aria-label="цена от, ₽">
+            <input type="number" min="0" inputmode="numeric" placeholder="до" data-price-to aria-label="цена до, ₽">
+          </div>
+          <button class="btn btn--dark btn--sm btn--block" type="button" data-price-apply>применить</button>
+        </div>
+      </div>
+
+      <label class="check fbar__check"><input type="checkbox" data-f-instock><span class="check__box"></span><span>только в наличии</span></label>
+      <label class="check fbar__check"><input type="checkbox" data-f-sale><span class="check__box"></span><span>только со скидкой</span></label>
+
+      <button class="linklike fbar__clear" type="button" data-reset>очистить фильтры ✕</button>
+
+      <div class="dd fbar__sort" data-dd="sort">
+        <button class="dd__btn" type="button"><span class="mute">сортировка:</span> <b data-sort-label>по популярности</b>
+          <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 9l6 6 6-6"/></svg></span>
+        </button>
+        <div class="dd__panel dd__panel--right" data-panel="sort"></div>
+      </div>
+
+    </div>
+
+    <!-- грид товаров -->
+    <div class="pgrid" data-grid></div>
+
+    <!-- пусто -->
+    <div class="empty" data-empty hidden>
+      <div class="empty__title">ничего не нашлось</div>
+      <p>ты отфильтровал даже нас. ослабь пару галочек — и дропы вернутся на место.</p>
+      <button class="btn btn--lime" type="button" data-reset>сбросить фильтры</button>
+    </div>
+
+    <!-- смотреть ещё -->
+    <div class="loadmore" data-more-wrap hidden>
+      <div class="loadmore__count small mute" data-count></div>
+      <button class="btn btn--outline" type="button" data-more>смотреть ещё</button>
+    </div>
+
+  </div>
+
+  <div id="chrome-footer"></div>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/store.js"></script>
+  <script src="assets/js/ui.js"></script>
+  <script src="assets/js/catalog.js"></script>
+</body>
+</html>

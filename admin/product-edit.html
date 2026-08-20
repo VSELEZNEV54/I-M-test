@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>редактор товара — админ-панель с?м</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/admin.css">
+</head>
+<body class="admin">
+  <div class="adm" id="adm-root">
+    <main class="adm__main" id="adm-main">
+
+      <form id="pform" novalidate>
+        <div class="adm-grid">
+          <div>
+
+            <div class="panel">
+              <div class="panel__head"><div class="panel__title">основное</div></div>
+              <div class="grid-2">
+                <label class="field" data-req="name"><span>название *</span>
+                  <input type="text" id="f-name" placeholder="худи overload">
+                  <div class="field__error">без названия товар не продать</div>
+                </label>
+                <label class="field" data-req="sku"><span>sku *</span>
+                  <input type="text" id="f-sku" placeholder="SM-0901">
+                  <div class="field__error">укажи артикул</div>
+                </label>
+              </div>
+              <div class="grid-2">
+                <label class="field" data-req="cat"><span>категория *</span>
+                  <select id="f-cat"><option value="">— выбери —</option></select>
+                  <div class="field__error">выбери категорию</div>
+                </label>
+                <label class="field"><span>коллекция</span>
+                  <select id="f-col"></select>
+                </label>
+              </div>
+              <label class="field"><span>цвет</span>
+                <select id="f-color"></select>
+              </label>
+            </div>
+
+            <div class="panel mt-20">
+              <div class="panel__head"><div class="panel__title">цена и остатки</div></div>
+              <div class="grid-2">
+                <label class="field" data-req="price"><span>цена, ₽ *</span>
+                  <input type="number" id="f-price" min="0" step="100" placeholder="7900">
+                  <div class="field__error">цена должна быть числом больше нуля</div>
+                </label>
+                <label class="field"><span>старая цена, ₽ (для скидки)</span>
+                  <input type="number" id="f-old" min="0" step="100" placeholder="9800">
+                </label>
+              </div>
+              <label class="check" style="margin-bottom:16px">
+                <input type="checkbox" id="f-uni"><span class="check__box"></span>
+                <span>аксессуар без размеров (один общий остаток)</span>
+              </label>
+              <div data-sizes-uni hidden>
+                <label class="field"><span>остаток, шт</span>
+                  <input type="number" id="f-stock-uni" min="0" value="0">
+                </label>
+              </div>
+              <div data-sizes-grid style="display:grid;grid-template-columns:repeat(5,1fr);gap:10px">
+                <label class="field"><span>XS</span><input type="number" id="f-s-XS" min="0" value="0"></label>
+                <label class="field"><span>S</span><input type="number" id="f-s-S" min="0" value="0"></label>
+                <label class="field"><span>M</span><input type="number" id="f-s-M" min="0" value="0"></label>
+                <label class="field"><span>L</span><input type="number" id="f-s-L" min="0" value="0"></label>
+                <label class="field"><span>XL</span><input type="number" id="f-s-XL" min="0" value="0"></label>
+              </div>
+            </div>
+
+            <div class="panel mt-20">
+              <div class="panel__head"><div class="panel__title">описание</div></div>
+              <label class="field"><span>краткое описание (для карточки)</span>
+                <textarea id="f-short" rows="2" placeholder="одна дерзкая фраза о товаре"></textarea>
+              </label>
+              <label class="field"><span>полное описание</span>
+                <textarea id="f-desc" rows="5" placeholder="ткань, крой, характер — всё строчными"></textarea>
+              </label>
+            </div>
+
+            <div class="panel mt-20">
+              <div class="panel__head"><div class="panel__title">характеристики</div></div>
+              <div data-chars></div>
+            </div>
+
+            <div class="panel mt-20">
+              <div class="panel__head"><div class="panel__title">теги</div></div>
+              <div style="display:flex;gap:22px;flex-wrap:wrap">
+                <label class="check"><input type="checkbox" data-tag="new"><span class="check__box"></span><span>new — новинка</span></label>
+                <label class="check"><input type="checkbox" data-tag="hit"><span class="check__box"></span><span>hit — хит продаж</span></label>
+                <label class="check"><input type="checkbox" data-tag="sale"><span class="check__box"></span><span>sale — распродажа</span></label>
+              </div>
+            </div>
+
+            <div class="panel mt-20">
+              <div class="panel__head"><div class="panel__title">фото</div>
+                <span class="small mute">в прототипе — выбор из готовых съёмок</span></div>
+              <div data-photos style="display:grid;grid-template-columns:repeat(6,1fr);gap:8px"></div>
+            </div>
+
+            <div class="panel mt-20">
+              <div class="panel__head"><div class="panel__title">seo</div></div>
+              <label class="field"><span>seo title</span>
+                <input type="text" id="f-seo-title" placeholder="купить худи overload — с?м, новосибирск">
+              </label>
+              <label class="field"><span>seo description</span>
+                <textarea id="f-seo-desc" rows="2" placeholder="описание для поисковиков, до 160 символов"></textarea>
+              </label>
+              <label class="field"><span>slug (адрес страницы)</span>
+                <input type="text" id="f-slug" placeholder="overload">
+                <div class="field__hint">пусто — возьмём sku строчными</div>
+              </label>
+            </div>
+
+            <div class="panel mt-20">
+              <div class="panel__head"><div class="panel__title">статус</div></div>
+              <div data-status-tiles>
+                <label class="radio-tile is-active">
+                  <input type="radio" name="pstatus" value="published" checked>
+                  <div class="radio-tile__row"><span>опубликован</span><span class="tag tag--lime">виден всем</span></div>
+                  <div class="radio-tile__sub">товар в каталоге и в поиске</div>
+                </label>
+                <label class="radio-tile">
+                  <input type="radio" name="pstatus" value="draft">
+                  <div class="radio-tile__row"><span>черновик</span><span class="tag">в работе</span></div>
+                  <div class="radio-tile__sub">видит только команда админки</div>
+                </label>
+                <label class="radio-tile">
+                  <input type="radio" name="pstatus" value="hidden">
+                  <div class="radio-tile__row"><span>скрыт</span><span class="tag tag--dark">снят с витрины</span></div>
+                  <div class="radio-tile__sub">страница есть, в каталоге не показывается</div>
+                </label>
+              </div>
+              <button class="btn btn--dark btn--block mt-20" type="submit" data-save>сохранить товар</button>
+            </div>
+
+          </div>
+
+          <div style="position:sticky;top:20px">
+            <div class="panel">
+              <div class="panel__head"><div class="panel__title">живое превью</div>
+                <span class="small mute">как в каталоге</span></div>
+              <div data-preview></div>
+              <p class="adm-note mt-20">превью обновляется на лету: меняй поля слева и смотри, как карточка выглядит на витрине.</p>
+            </div>
+          </div>
+        </div>
+      </form>
+
+    </main>
+  </div>
+
+  <script src="../assets/js/data.js"></script>
+  <script src="../assets/js/store.js"></script>
+  <script src="../assets/js/ui.js"></script>
+  <script src="../assets/js/admin-ui.js"></script>
+  <script src="../assets/js/admin-product-edit.js"></script>
+</body>
+</html>
